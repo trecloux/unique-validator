@@ -1,0 +1,8 @@
+This project is a proof of concept of a unique constraint validator.
+
+When a database unicity constraint is set on a JPA Entity, we usually got two options :
+* Catch the PersistenceException and the nested JPA provider exception (for Hibernate : ConstraintViolationException). It is very hard to create a generic handler for this exception (extract column name from the exception, recreate the form context, ...)
+
+* Query the database before the persist/merge operation, in order to check if the unique value is already inserted in the database. this POC uses this option.
+
+   
